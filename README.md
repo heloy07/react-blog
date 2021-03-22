@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Blog full-stack application using React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a simple full-stack blog using MangoDb,React,Nodejs and Amazon for hosting
 
 ## Available Scripts
 
