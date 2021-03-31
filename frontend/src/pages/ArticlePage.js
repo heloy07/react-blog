@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react';
 import ArticleContent from './article-content';
 import ArticlesList from '../components/ArticlesList';
 import NotFoundPage from './NotFoundPage';
+import CommentsList from '../components/CommentsList';
 
 const ArticlesPage = ({ match }) => {
     const name = match.params.name;
@@ -14,6 +15,7 @@ const ArticlesPage = ({ match }) => {
             const result = await fetch(`/api/articles/${name}`);
             const body = await result.json();
             setArticleInfo(body);
+            console.log(body.comments);
         }
         fetchData();
         
@@ -28,6 +30,7 @@ const ArticlesPage = ({ match }) => {
             {article.content.map((paragraph, key) => (
                 <p key={key}>{paragraph}</p>
             ))}
+            <CommentsList comments={articleInfo.comments} />
             <h3>Other Articles:</h3>
             <ArticlesList articles={otherArticles} />
         </>
